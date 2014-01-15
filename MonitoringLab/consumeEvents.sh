@@ -7,7 +7,7 @@ do
   MSG_HANDLE=$(aws sqs receive-message --region=$REGION --wait-time-seconds=5 --queue-url=$QURL --output=text --max-number-of-messages=1 --query='Messages[*].ReceiptHandle')
   if [ -n "$MSG_HANDLE" ]; then
     echo "Received auto scaling event message handle $MSG_HANDLE"
-    /usr/local/sysopsonaws-labs-linux-master/pollInstances.sh $SERVER
+    /usr/local/sysopsonaws-labs-linux-master/MonitoringLab/pollInstances.sh $SERVER
     echo "Event processed, removing from queue"	
     aws sqs delete-message --region=$REGION --queue-url $QURL --receipt-handle $MSG_HANDLE
   fi
