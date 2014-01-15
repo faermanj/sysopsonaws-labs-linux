@@ -1,5 +1,4 @@
-# Interacting with CloudWatch
-## Topic 3.2
+#Figure 1
 
 wget http://ec2-downloads.s3.amazonaws.com/cloudwatch-samples/CloudWatchMonitoringScripts-v1.1.0.zip
 unzip CloudWatchMonitoringScripts-v1.1.0.zip 
@@ -24,7 +23,7 @@ aws cloudwatch get-metric-statistics \
  --period=300 \
  --statistics="Minimum" \
  --dimensions Name=InstanceId,Value=$(curl -s http://169.254.169.254/latest/meta-data/instance-id) \
- --region=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | rev | cut -c 2- | rev)
+ --region=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone/ | sed -e 's/.$//')
 
 ## Topic 7.2
 
