@@ -27,7 +27,7 @@ aws cloudwatch get-metric-statistics \
 
 ## Topic 7.2
 
-curl -s https://raw.github.com/jfaerman/sysopsonaws-labs-linux/master/MonitoringLab/allocateMemory.py | python -
+curl -s https://github.com/awstrainingandcertification/sysopsonaws-labs-linux/master/MonitoringLab/allocateMemory.py | python -
 
 # Integrating with Other Monitoring Services
 
