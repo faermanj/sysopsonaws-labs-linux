@@ -1,4 +1,6 @@
-#Figure 1
+#Interacting with CloudWatch
+
+## Topic 3.2
 
 wget http://ec2-downloads.s3.amazonaws.com/cloudwatch-samples/CloudWatchMonitoringScripts-v1.1.0.zip
 unzip CloudWatchMonitoringScripts-v1.1.0.zip 
@@ -48,10 +50,10 @@ curl -X PUT \
   -d instanceId=$(curl -s http://169.254.169.254/latest/meta-data/instance-id) \
  [monitoring_server_url]
 
-## Full Scan / Config Rewrite - Topic 8
+## Schedule the scan / config rewrite script - Topic 2
 
 echo "*/2 * * * * /usr/local/sysopsonaws-labs-linux-master/MonitoringLab/pollInstances.sh [monitoring_server_url]" | crontab -
 
-## Messaging (SNS and SQS) - Topic 7 
+## Consume Auto Scaling Events - Topic 2
 
 /usr/local/sysopsonaws-labs-linux-master/consumeEvents.sh [queue_url] [monitoring_server_url]
