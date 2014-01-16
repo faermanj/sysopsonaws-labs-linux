@@ -16,7 +16,7 @@ cd aws-scripts-mon
 
 echo "*/5 * * * * ~/aws-scripts-mon/mon-put-instance-data.pl --mem-avail" | crontab 
 
-## Topic 4.1
+## Topic 5.1
 
 aws cloudwatch get-metric-statistics \
  --metric-name "MemoryAvailable" \
@@ -28,7 +28,7 @@ aws cloudwatch get-metric-statistics \
  --dimensions Name=InstanceId,Value=$(curl -s http://169.254.169.254/latest/meta-data/instance-id) \
  --region=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone/ | sed -e 's/.$//')
 
-## Topic 7.2
+## Topic 3.4
 
 curl -s https://raw.github.com/awstrainingandcertification/sysopsonaws-labs-linux/master/MonitoringLab/allocateMemory.py | python -
 
