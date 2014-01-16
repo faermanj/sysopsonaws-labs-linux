@@ -7,6 +7,7 @@ unzip CloudWatchMonitoringScripts-v1.1.0.zip
 rm CloudWatchMonitoringScripts-v1.1.0.zip 
 cd aws-scripts-mon
 
+
 ## Topic 3.3
 
 ./mon-put-instance-data.pl --mem-avail
@@ -29,7 +30,7 @@ aws cloudwatch get-metric-statistics \
 
 ## Topic 7.2
 
-curl -s https://github.com/awstrainingandcertification/sysopsonaws-labs-linux/master/MonitoringLab/allocateMemory.py | python -
+curl -s https://raw.github.com/awstrainingandcertification/sysopsonaws-labs-linux/master/MonitoringLab/allocateMemory.py | python -
 
 # Integrating with Other Monitoring Services
 
@@ -37,7 +38,7 @@ curl -s https://github.com/awstrainingandcertification/sysopsonaws-labs-linux/ma
 
 #!/bin/bash
 easy_install pip
-pip install setuptools --no-use-wheel –upgrade
+pip install setuptools --no-use-wheel --upgrade
 pip install Flask
 curl -s -O -L https://github.com/awstrainingandcertification/sysopsonaws-labs-linux/archive/master.zip
 unzip master.zip -d /usr/local/
@@ -56,4 +57,4 @@ echo "*/2 * * * * /usr/local/sysopsonaws-labs-linux-master/MonitoringLab/pollIns
 
 ## Consume Auto Scaling Events - Topic 2
 
-/usr/local/sysopsonaws-labs-linux-master/consumeEvents.sh [queue_url] [monitoring_server_url]
+/usr/local/sysopsonaws-labs-linux-master/MonitoringLab/consumeEvents.sh [queue_url] [monitoring_server_url]
