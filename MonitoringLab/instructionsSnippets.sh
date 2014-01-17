@@ -2,40 +2,28 @@
 # Interacting with CloudWatch   #
 # ============================= #
 
-# Topic ???
+# Topic 2.2
 # =========
 
 aws cloudwatch put-metric-data \
   --region=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone/ | sed -e 's/.$//') \
   --namespace Student \
   --metric-name AttentionLevel \
-  --value 8
+  --value 8 \
   --debug
 
-
-
-# Topic 3.3
-# =========
-
-./mon-put-instance-data.pl --mem-avail
-
-# Topic 3.4
-# =========
-
-echo "*/5 * * * * ~/aws-scripts-mon/mon-put-instance-data.pl --mem-avail" | crontab 
-
-# Topic 5.1
+# Topic 4.1
 # =========
 
 aws cloudwatch get-metric-statistics \
  --region=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone/ | sed -e 's/.$//') \
- --metric-name "MemoryAvailable" \
- --namespace="System/Linux" \
+ --metric-name "AttentionLevel" \
+ --namespace="Student" \
  --start-time=$(date -d yesterday -I) \
  --end-time=$(date -d tomorrow -I) \
  --period=300 \
- --statistics="Minimum" \
- --dimensions Name=InstanceId,Value=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)  
+ --statistics="Minimum"
+ 
 
 # Topic 3.4
 # =========
