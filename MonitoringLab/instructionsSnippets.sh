@@ -28,8 +28,12 @@ aws cloudwatch get-metric-statistics \
 # Topic 3.4
 # =========
 
-curl -s https://raw.github.com/awstrainingandcertification/sysopsonaws-labs-linux/master/MonitoringLab/allocateMemory.py | python -
-
+aws cloudwatch put-metric-data \
+  --region=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone/ | sed -e 's/.$//') \
+  --namespace Student \
+  --metric-name AttentionLevel \
+  --value 4 \
+  --debug
 
 # ==================================== #
 # Integrating with Monitoring Services #
