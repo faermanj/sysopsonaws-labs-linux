@@ -10,6 +10,7 @@ aws cloudwatch put-metric-data \
   --namespace Student \
   --metric-name AttentionLevel \
   --value 8
+  --debug
 
 
 
